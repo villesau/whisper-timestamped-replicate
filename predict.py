@@ -8,7 +8,7 @@ import uuid
 class Predictor(BasePredictor):
     def setup(self):
         """Load the model into memory to make running multiple predictions efficient"""
-        self.model = whisper_timestamped.load_model("openai/whisper-large-v3", device="cuda")
+        self.model = whisper_timestamped.load_model("weights/whisper/large-v3.pt", device="cuda")
 
     def predict(
             self,
