@@ -2,3 +2,5 @@ cog==0.9.24
 transformers==4.45.1
 whisper-timestamped==1.15.4
 openai-whisper==20240927
+onnxruntime==1.19.2
+torchaudio==2.2.2
