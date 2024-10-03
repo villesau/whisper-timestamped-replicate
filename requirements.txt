@@ -1,0 +1,4 @@
+cog==0.9.24
+transformers==4.45.1
+whisper-timestamped==1.15.4
+openai-whisper==20240927
