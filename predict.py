@@ -7,6 +7,7 @@ import uuid
 
 class Predictor(BasePredictor):
     def setup(self):
+        os.environ['TORCH_HOME'] = './weights'
         """Load the model into memory to make running multiple predictions efficient"""
         self.model = whisper_timestamped.load_model("weights/whisper/large-v3.pt", device="cuda")
 

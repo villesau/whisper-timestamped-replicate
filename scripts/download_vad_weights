@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+import os
+import torch
+
+# Set the TORCH_HOME environment variable
+os.environ['TORCH_HOME'] = './weights'
+
+# Define and create the cache directory
+CACHE_DIR = os.path.join(os.environ['TORCH_HOME'], 'hub')
+os.makedirs(CACHE_DIR, exist_ok=True)
+
+# Set the torch hub directory
+torch.hub.set_dir(CACHE_DIR)
+
+# Download Silero VAD model
+model, utils = torch.hub.load(
+    repo_or_dir="snakers4/silero-vad",
+    model="silero_vad",
+    force_reload=True,
+    onnx=False,
+    source="github"
+)
+
+print(f"Model weights downloaded to: {CACHE_DIR}")
+print("\nTo use with whisper-timestamped, set TORCH_HOME:")
+print(f"export TORCH_HOME={os.path.abspath('./weights')}")
